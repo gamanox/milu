@@ -1,7 +1,165 @@
 import { createGlobalStyle } from "styled-components"
 import configs from "../../site-config"
+import homebg from '../images/bg.jpg'
+import nube from '../images/nube_pixel.png'
+import shine from '../images/shine_pixel.png'
+import boat from '../images/boat_pixel.png'
+import ripple from '../images/ripple_pixel.png'
 
 export default createGlobalStyle`
+
+  @-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  @-webkit-keyframes floating /* Safari and Chrome */ {
+    0% {
+      -webkit-transform: translate(0px, 0px);
+      -o-transform: translate(0px, 0px);
+      transform: translate(0px, 0px);
+    }
+    50% {
+      -webkit-transform: translate(0px, -20px);
+      -o-transform: translate(0px, -20px);
+      transform: translate(0px, -20px);
+    }
+    100% {
+      -webkit-transform: translate(0px, 0px);
+      -o-transform: translate(0px, 0px);
+      transform: translate(0px, 0px);
+    }
+  }
+  @keyframes floating {
+    0% {
+      -ms-transform: translate(0px, 0px);
+      -moz-transform: translate(0px, 0px);
+      -webkit-transform: translate(0px, 0px);
+      -o-transform: translate(0px, 0px);
+      transform: translate(0px, 0px);
+    }
+    50% {
+      -ms-transform: translate(0px, -20px);
+      -moz-transform: translate(0px, -20px);
+      -webkit-transform: translate(0px, -20px);
+      -o-transform: translate(0px, -20px);
+      transform: translate(0px, -20px);
+    }
+    100% {
+      -ms-transform: translate(0px, 0px);
+      -moz-transform: translate(0px, 0px);
+      -webkit-transform: translate(0px, 0px);
+      -o-transform: translate(0px, 0px);
+      transform: translate(0px, 0px);
+    }
+  }
+
+  body {
+    background-color: black;
+  }
+
+  .homebg {
+    height: 1032px;
+    width: 100%;
+    position: absolute;
+    background-image: url(${homebg});
+    background-position: 100% 0%;
+    background-repeat: no-repeat;
+    background-size: auto 1037px;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .homebg .nube {
+    width: 340px;
+    height: 125px;
+    top: 163px;
+    right: 200px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url(${nube});
+
+    position: absolute;
+    mix-blend-mode: screen;
+    opacity: 0.5;
+    image-rendering: pixelated;
+  }
+  .homebg .ripple {
+    width: 300px;
+    height: 140px;
+    top: 163px;
+    right: 200px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url(${ripple});
+
+    position: absolute;
+    mix-blend-mode: screen;
+    opacity: 0.5;
+    image-rendering: pixelated;
+  }
+  .homebg .bote {
+    width: 200px;
+    height: 163px;
+    bottom: 201px;
+    right: 217px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url(${boat});
+
+    position: absolute;
+    image-rendering: pixelated;
+    -webkit-animation: floating 5s linear infinite;
+    -moz-animation: floating 5s linear infinite;
+    -ms-animation: floating 5s linear infinite;
+    -o-animation: floating 5s linear infinite;
+    animation: floating 5s linear infinite;
+  }
+
+  .homebg .shine {
+    width: 1612px;
+    height: 1612px;
+    position: absolute;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url(${shine});
+    bottom: -448px;
+    right: -481px;
+    mix-blend-mode: screen;
+    opacity: 0.5;
+    -webkit-animation: rotating 20s linear infinite;
+    -moz-animation: rotating 20s linear infinite;
+    -ms-animation: rotating 20s linear infinite;
+    -o-animation: rotating 20s linear infinite;
+    animation: rotating 20s linear infinite;
+    image-rendering: pixelated;
+  }
+
+
   html {
     font-size: 62.5%;
     font-family: ${configs.font};
@@ -54,11 +212,13 @@ export default createGlobalStyle`
 
   .imageWrapper {
     // Sets the background image in the header area
-    height: 714px;
+    height: 730px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
     border-radius: 0px 0px 40px 40px;
+    position: relative;
+    z-index: 10001;
   }
 
   .headerImage {
@@ -92,7 +252,7 @@ export default createGlobalStyle`
     grid-column-gap: 30px;
     grid-template-areas:
       "h h h h h h h h h h h h"
-      "p p p p p i i i i i i i"
+      "p p p p p p i i i i i i"
       "c c c c c c c c c c c c"
       "f f f f f f f f f f f f";
   }
@@ -532,4 +692,11 @@ export default createGlobalStyle`
   .hidden {
     display: none;
   }
+
+  
+
+
+
+
+  
 `

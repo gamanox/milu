@@ -6,8 +6,8 @@ module.exports = {
   presskit_download_link: "https://miluismi", // Enter a link to downloadable file or (e.g. public Dropbox link to a .zip file).
   video_or_screenshot: "screenshot", // "screenshot" or "video"
   app_url: "https://agalp.miluismi", // Domain of your website without path_prefix.
-  path_prefix: "/", // Prefixes all links. For cases when deployed to example.github.io/automatic-gatsbyjs-app-landing-page/.
-  app_name: "Mi Luismi",
+  path_prefix: "/miluismi/", // Prefixes all links. For cases when deployed to example.github.io/automatic-gatsbyjs-app-landing-page/.
+  app_name: "Mi Luismi La Serie",
   app_price: "Free",
   app_description: "Estás a la altura de ser el manager de Luismi?.",
   app_keywords: ["automatic", "gatsbyjs", "app", "landing page"],
@@ -83,7 +83,7 @@ module.exports = {
   ],
   header_background: "rgba(0, 0, 0, 0.1)",
   topbar_title_color: "#ffffff",
-  cover_overlay_color_rgba: "rgba(54, 59, 61, 0.8)",
+  cover_overlay_color_rgba: "rgba(54, 59, 61, 0.2)",
   device_color: "black", // Set to "black", "blue", "coral", "white", or "yellow"
   body_background_color: "ffffff",
   primary_text_color: "#000",

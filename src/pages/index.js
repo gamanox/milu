@@ -4,23 +4,51 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
 import "@fortawesome/fontawesome-free/css/all.min.css"
 
 import configs from "../../site-config"
 
+var myWidth = 0,
+  myHeight = 0;
+
+
+
+
+function updateDimensions() {
+  if (typeof window.innerWidth == "number") {
+    //Non-IE
+    myWidth = window.innerWidth
+    myHeight = window.innerHeight
+  } else if (
+    document.documentElement &&
+    (document.documentElement.clientWidth ||
+      document.documentElement.clientHeight)
+  ) {
+    myWidth = document.documentElement.clientWidth
+    myHeight = document.documentElement.clientHeight
+  } else if (
+    document.body &&
+    (document.body.clientWidth || document.body.clientHeight)
+  ) {
+    myWidth = document.body.clientWidth
+    myHeight = document.body.clientHeight
+  }
+}
+
+
+
+
+
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" keywords={configs.app_keywords} />
+    <div className="homebg">
+      <div className="nube"></div>
+      <div className="shine"></div>
+      <div className="bote"></div>
+    </div>
 
-    <div
-      className="imageWrapper"
-      style={{
-        backgroundImage: `linear-gradient(${configs.cover_overlay_color_rgba},${
-          configs.cover_overlay_color_rgba
-        }),url(${data.headerImage.childImageSharp.fluid.src})`,
-      }}
-    >
+    <div className="imageWrapper">
       <div className="headerBackground">
         <div className="container">
           <header>
@@ -166,9 +194,7 @@ const IndexPage = ({ data }) => (
                       <span className="fa-stack fa-1x">
                         <i className="iconBack fas fa-circle fa-stack-2x" />
                         <i
-                          className={`iconTop fas fa-${
-                            feature.fontawesome_icon_name
-                          } fa-stack-1x`}
+                          className={`iconTop fas fa-${feature.fontawesome_icon_name} fa-stack-1x`}
                         />
                       </span>
                     </div>
